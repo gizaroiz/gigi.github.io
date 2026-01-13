@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>💙 para você</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #cfe9ff, #eaf4ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 60px 50px;
+      border-radius: 35px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #5aa9e6;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #8ecbff, #5aa9e6);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .mensagem {
+      display: none;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #4a90c2;
+      animation: aparecer 1.5s ease forwards;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .spotify {
+      display: none;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #5aa9e6;
+      background: #eaf4ff;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-size: 15px;
+    }
+
+    .kitty {
+      position: absolute;
+      font-size: 40px;
+      animation: subir 10s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes subir {
+      from { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      to { transform: translateY(-600px); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>💙</h1>
+
+    <button onclick="mostrar()">Aperte aqui</button>
+
+    <div class="mensagem" id="msg">
+      eu te amo muito matheus.<br>
+      você é muito importante pra mim.
+    </div>
+
+    <a class="spotify" id="music"
+       href="https://open.spotify.com/track/3XVBdLihbNbxUwZosnJUf6"
+       target="_blank">
+       nossa música 🎧
+    </a>
+  </div>
+
+  <script>
+    function criarKitty() {
+      const k = document.createElement("div");
+      k.className = "kitty";
+      k.innerHTML = "🎀🐱";
+
+      k.style.left = Math.random() * window.innerWidth + "px";
+      k.style.top = window.innerHeight + "px";
+
+      document.body.appendChild(k);
+
+      setTimeout(() => k.remove(), 10000);
+    }
+
+    function mostrar() {
+      document.getElementById("msg").style.display = "block";
+      document.getElementById("music").style.display = "inline-block";
+      setInterval(criarKitty, 1200);
+    }
+  </script>
+
+</body>
+</html>
